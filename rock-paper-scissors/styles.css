@@ -1,0 +1,45 @@
+body,html{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body h1{
+    text-align: center;
+}
+.display-picked{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 100px;
+}
+.scoreboard{
+    display: flex;
+    flex-direction: column;
+}
+.display-picked .scoreboard{
+    justify-content: baseline;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+}
+.scoreboard .container{
+    display: flex;
+    gap: 20px;
+}
+.display-picked img{
+    
+    /* border: 1px solid #000; */
+}
+.buttons{
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.buttons button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

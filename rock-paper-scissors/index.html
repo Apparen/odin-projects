@@ -4,12 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <h1>Rock Paper Scissors game</h1>
-    <button class="Rock">Rock</button>
-    <button class="Paper">Paper</button>
-    <button class="Scissors">Scissors</button>
+    <div class="display-picked">
+      <div class="user">
+        <h2>User Picked:</h2>
+        <img
+          id="user-pick"
+          src="images/placeholdr.png"
+          alt=""
+          height="250px"
+          width="250px"
+        />
+      </div>
+      <div class="scoreboard">
+        <h2 id="winner"></h2>
+        <div class="container">
+          <p>User Score: <span id="user-score">0</span></p>
+          <p>VS</p>
+          <p>Computer Score: <span id="computer-score">0</span></p>
+        </div>
+      </div>
+      <div class="computer">
+        <h2>Computer Picked:</h2>
+        <img
+          id="computer-pick"
+          src="images/placeholdr.png"
+          alt=""
+          height="250px"
+          width="250px"
+        />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button
+        class="Rock"
+        style="border: none; background: transparent; padding: 0"
+      >
+        <img src="images/assets/buttons/rock-button.png" alt="" width="200px" />
+      </button>
+      <button
+        class="Paper"
+        style="border: none; background: transparent; padding: 0"
+      >
+        <img
+          src="images/assets/buttons/paper-button.png"
+          alt=""
+          width="200px"
+        />
+      </button>
+      <button
+        class="Scissors"
+        style="border: none; background: transparent; padding: 0"
+      >
+        <img
+          src="images/assets/buttons/scissors-button.png"
+          alt=""
+          width="200px"
+        />
+      </button>
+    </div>
 
     <!-- rock paper scissors game -->
     <!-- take user input -->
@@ -23,9 +80,15 @@
       const paper = document.querySelector(".Paper");
       const scissors = document.querySelector(".Scissors");
       const userPick = [rock, paper, scissors];
+      const userImage = document.getElementById("user-pick");
+      const computerImage = document.getElementById("computer-pick");
+      const userScore = document.getElementById("user-score");
+      const computerScore = document.getElementById("computer-score");
+      const winner = document.getElementById("winner");
       userPick.forEach((button) => {
         button.addEventListener("click", () => {
           const userChoice = button.className.toLocaleLowerCase();
+          userImage.src = `./images//assets/hands/${userChoice}.png`;
           const computerChoice = computerTurn();
           versus(userChoice, computerChoice);
         });
@@ -38,25 +101,52 @@
       }
       function versus(userChoice, computerChoice) {
         if (userChoice === computerChoice) {
-          alert("its a draw");
+          computerImage.src = `images/assets/hands/${computerChoice}.png`;
+          winner.textContent = `It's a Draw`;
+          winner.style.color = "blue";
+          //   console.log("its a draw");
         }
         if (userChoice === "rock" && computerChoice === "paper") {
-          alert("Computer Wins");
+          computerImage.src = `images/assets/hands/${computerChoice}.png`;
+          console.log("Computer Win");
+          computerScore.textContent = parseInt(computerScore.textContent) + 1;
+          winner.textContent = `Computer Win`;
+          winner.style.color = "red";
         }
         if (userChoice === "rock" && computerChoice === "scissors") {
-          alert("User Wins");
+          computerImage.src = `images/assets/hands/${computerChoice}.png`;
+          console.log("User Win");
+          userScore.textContent = parseInt(userScore.textContent) + 1;
+          winner.textContent = `User Win`;
+          winner.style.color = "green";
         }
         if (userChoice === "paper" && computerChoice === "scissors") {
-          alert("Computer Wins");
+          computerImage.src = `images/assets/hands/${computerChoice}.png`;
+          console.log("Computer Win");
+          computerScore.textContent = parseInt(computerScore.textContent) + 1;
+          winner.textContent = `Computer Win`;
+          winner.style.color = "red";
         }
         if (userChoice === "paper" && computerChoice === "rock") {
-          alert("User Wins");
+          computerImage.src = `images/assets/hands/${computerChoice}.png`;
+          console.log("User Win");
+          userScore.textContent = parseInt(userScore.textContent) + 1;
+          winner.textContent = `User Win`;
+          winner.style.color = "green";
         }
         if (userChoice === "scissors" && computerChoice === "paper") {
-          alert("User Wins");
+          computerImage.src = `images/assets/hands/${computerChoice}.png`;
+          console.log("User Win");
+          userScore.textContent = parseInt(userScore.textContent) + 1;
+          winner.textContent = `User Win`;
+          winner.style.color = "green";
         }
         if (userChoice === "scissors" && computerChoice === "rock") {
-          alert("Computer Wins");
+          computerImage.src = `images/assets/hands/${computerChoice}.png`;
+          console.log("Computer Win");
+          computerScore.textContent = parseInt(computerScore.textContent) + 1;
+          winner.textContent = `Computer Win`;
+          winner.style.color = "red";
         }
       }
     </script>

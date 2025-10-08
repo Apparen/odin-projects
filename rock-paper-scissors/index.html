@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors game</h1>
+    <button class="Rock">Rock</button>
+    <button class="Paper">Paper</button>
+    <button class="Scissors">Scissors</button>
+
+    <!-- rock paper scissors game -->
+    <!-- take user input -->
+    <!-- generate computer input -->
+    <!-- compare user input and computer input -->
+    <!-- declare winner -->
+    <!-- keep score -->
+
+    <script>
+      const rock = document.querySelector(".Rock");
+      const paper = document.querySelector(".Paper");
+      const scissors = document.querySelector(".Scissors");
+      const userPick = [rock, paper, scissors];
+      userPick.forEach((button) => {
+        button.addEventListener("click", () => {
+          const userChoice = button.className.toLocaleLowerCase();
+          const computerChoice = computerTurn();
+          versus(userChoice, computerChoice);
+        });
+      });
+      function computerTurn() {
+        const choice = ["rock", "paper", "scissors"];
+        const random = Math.floor(Math.random() * 3);
+        return choice[random];
+        console.log("C: " + random);
+      }
+      function versus(userChoice, computerChoice) {
+        if (userChoice === computerChoice) {
+          alert("its a draw");
+        }
+        if (userChoice === "rock" && computerChoice === "paper") {
+          alert("Computer Wins");
+        }
+        if (userChoice === "rock" && computerChoice === "scissors") {
+          alert("User Wins");
+        }
+        if (userChoice === "paper" && computerChoice === "scissors") {
+          alert("Computer Wins");
+        }
+        if (userChoice === "paper" && computerChoice === "rock") {
+          alert("User Wins");
+        }
+        if (userChoice === "scissors" && computerChoice === "paper") {
+          alert("User Wins");
+        }
+        if (userChoice === "scissors" && computerChoice === "rock") {
+          alert("Computer Wins");
+        }
+      }
+    </script>
+  </body>
+</html>

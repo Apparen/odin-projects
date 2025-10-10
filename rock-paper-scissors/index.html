@@ -90,7 +90,7 @@
           const userChoice = button.className.toLocaleLowerCase();
           userImage.src = `./images//assets/hands/${userChoice}.png`;
           const computerChoice = computerTurn();
-          versus(userChoice, computerChoice);
+          playGame(userChoice, computerChoice);
         });
       });
       function computerTurn() {
@@ -99,55 +99,51 @@
         return choice[random];
         console.log("C: " + random);
       }
-      function versus(userChoice, computerChoice) {
+      let totalUserScore = 0;
+      let totalComputerScore = 0;
+      function playGame(userChoice, computerChoice) {
         if (userChoice === computerChoice) {
           computerImage.src = `images/assets/hands/${computerChoice}.png`;
           winner.textContent = `It's a Draw`;
           winner.style.color = "blue";
           //   console.log("its a draw");
-        }
-        if (userChoice === "rock" && computerChoice === "paper") {
+        } else if (
+          (userChoice === "rock" && computerChoice === "scissors") ||
+          (userChoice === "paper" && computerChoice === "rock") ||
+          (userChoice === "scissors" && computerChoice === "paper")
+        ) {
+          computerImage.src = `images/assets/hands/${userChoice}.png`;
+          console.log("Player Win");
+          userScore.textContent = parseInt(userScore.textContent) + 1;
+          totalUserScore += 1;
+          winner.textContent = `Player Win`;
+          winner.style.color = "green";
+        } else {
           computerImage.src = `images/assets/hands/${computerChoice}.png`;
           console.log("Computer Win");
           computerScore.textContent = parseInt(computerScore.textContent) + 1;
+          totalComputerScore += 1;
           winner.textContent = `Computer Win`;
           winner.style.color = "red";
         }
-        if (userChoice === "rock" && computerChoice === "scissors") {
-          computerImage.src = `images/assets/hands/${computerChoice}.png`;
-          console.log("User Win");
-          userScore.textContent = parseInt(userScore.textContent) + 1;
-          winner.textContent = `User Win`;
-          winner.style.color = "green";
+        if (totalUserScore === 5 || totalComputerScore === 5) {
+          findWinner();
+          resetGame();
         }
-        if (userChoice === "paper" && computerChoice === "scissors") {
-          computerImage.src = `images/assets/hands/${computerChoice}.png`;
-          console.log("Computer Win");
-          computerScore.textContent = parseInt(computerScore.textContent) + 1;
-          winner.textContent = `Computer Win`;
-          winner.style.color = "red";
-        }
-        if (userChoice === "paper" && computerChoice === "rock") {
-          computerImage.src = `images/assets/hands/${computerChoice}.png`;
-          console.log("User Win");
-          userScore.textContent = parseInt(userScore.textContent) + 1;
-          winner.textContent = `User Win`;
-          winner.style.color = "green";
-        }
-        if (userChoice === "scissors" && computerChoice === "paper") {
-          computerImage.src = `images/assets/hands/${computerChoice}.png`;
-          console.log("User Win");
-          userScore.textContent = parseInt(userScore.textContent) + 1;
-          winner.textContent = `User Win`;
-          winner.style.color = "green";
-        }
-        if (userChoice === "scissors" && computerChoice === "rock") {
-          computerImage.src = `images/assets/hands/${computerChoice}.png`;
-          console.log("Computer Win");
-          computerScore.textContent = parseInt(computerScore.textContent) + 1;
-          winner.textContent = `Computer Win`;
-          winner.style.color = "red";
-        }
+      }
+      function findWinner() {
+        totalUserScore === 5
+          ? alert("You are the Winner!")
+          : alert("You Lost!");
+      }
+      function resetGame() {
+        totalUserScore = 0;
+        totalComputerScore = 0;
+        userScore.textContent = "0";
+        computerScore.textContent = "0";
+        userImage.src = "images/placeholdr.png";
+        computerImage.src = "images/placeholdr.png";
+        winner.textContent = "";
       }
     </script>
   </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      const choice = ["rock", "paper", "scissors"];
+      const getPlayerInput = prompt(
+        "Enter your pick Rock, Paper, Scissors,"
+      ).toLowerCase();
+      const getComputerInput = () => {
+        const random = Math.floor(Math.random() * 3);
+        const computerInput = choice[random];
+        return computerInput;
+      };
+      function playGame(player, computer) {
+        player = player.toLowerCase();
+        computer = computer.toLowerCase();
+        if (choice.includes(player)) {
+          if (player === computer) {
+            alert("Its a draw");
+          }
+          if (
+            (player === "rock" && computer === "scissors") ||
+            (player === "paper" && computer === "rock") ||
+            (player === "scissors" && computer === "paper")
+          ) {
+            alert(
+              `You Win ! \nYou Pick: ${player}, Computer pick: ${computer}\n${player} beats ${computer}`
+            );
+          } else {
+            alert(
+              `You Lose ! \nYou Pick: ${player}, Computer pick: ${computer}\n${computer} beats ${player}`
+            );
+          }
+        } else {
+          alert("Your choice is not valid");
+        }
+        location.reload();
+      }
+      playGame(getPlayerInput, getComputerInput());
+    </script>
+  </body>
+</html>

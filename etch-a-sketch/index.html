@@ -3,23 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Etch-a-Sketch</title>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* background-color: #00000079; */
       }
       body {
+        margin: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        gap: 25px;
       }
       button {
         width: 100px;
         height: 50px;
+        font-size: 24px;
+        font-weight: 700;
       }
     </style>
   </head>
@@ -32,11 +35,11 @@
       container.style.display = "flex";
       container.style.height = `${containerSize}`;
       container.style.width = `960px`;
-      container.style.border = "1px solid #000";
+      container.style.outline = "1px solid #000";
       container.style.flexWrap = "wrap";
       document.body.appendChild(container);
-      const resetButton = document.querySelector("button");
-      resetButton.addEventListener("click", () => {
+      const startButton = document.querySelector("button");
+      startButton.addEventListener("click", () => {
         container.innerHTML = "";
         const totalBoxes = prompt("How many boxes per side? 100 is max", 16);
         for (let row = 0; row < totalBoxes * totalBoxes; row++) {
@@ -44,7 +47,7 @@
           box.classList.add("box");
           box.style.width = `${960 / totalBoxes}px`;
           box.style.height = `${960 / totalBoxes}px`;
-          box.style.border = "1px solid #000";
+          box.style.outline = "1px solid #000";
           box.style.display = "flex";
           container.appendChild(box);
           box.addEventListener("mouseover", () => {

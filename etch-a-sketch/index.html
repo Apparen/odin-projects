@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* background-color: #00000079; */
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      button {
+        width: 100px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Start</button>
+    <script>
+      const containerSize = "960px";
+      const container = document.createElement("div");
+      container.classList.add("boxes");
+      container.style.display = "flex";
+      container.style.height = `${containerSize}`;
+      container.style.width = `960px`;
+      container.style.border = "1px solid #000";
+      container.style.flexWrap = "wrap";
+      document.body.appendChild(container);
+      const resetButton = document.querySelector("button");
+      resetButton.addEventListener("click", () => {
+        container.innerHTML = "";
+        const totalBoxes = prompt("How many boxes per side? 100 is max", 16);
+        for (let row = 0; row < totalBoxes * totalBoxes; row++) {
+          const box = document.createElement("div");
+          box.classList.add("box");
+          box.style.width = `${960 / totalBoxes}px`;
+          box.style.height = `${960 / totalBoxes}px`;
+          box.style.border = "1px solid #000";
+          box.style.display = "flex";
+          container.appendChild(box);
+          box.addEventListener("mouseover", () => {
+            const currentBg = box.style.backgroundColor;
+            if (currentBg) {
+              let extractRgbaVal = currentBg
+                .replace("rgba(", "")
+                .replace(")", "")
+                .split(",");
+              let getAlpha = parseFloat(extractRgbaVal[3]);
+              if (getAlpha < 1) {
+                getAlpha += 0.1;
+              }
+
+              box.style.backgroundColor = `rgba(0,0,0, ${getAlpha})`;
+            } else {
+              box.style.backgroundColor = "rgba(0,0,0, 0.1)";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculatoooooooooooooooor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Playwrite+HU&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="screen"></div>
+      <div class="buttons">
+        <div class="first-section">
+          <div class="button">AC</div>
+          <div class="button">+/-</div>
+          <div class="button">%</div>
+          <div class="button orange">/</div>
+        </div>
+        <div class="second-section">
+          <div class="button">7</div>
+          <div class="button">8</div>
+          <div class="button">9</div>
+          <div class="button orange">x</div>
+        </div>
+        <div class="third-section">
+          <div class="button">4</div>
+          <div class="button">5</div>
+          <div class="button">6</div>
+          <div class="button orange">-</div>
+        </div>
+        <div class="fourth-section">
+          <div class="button">1</div>
+          <div class="button">2</div>
+          <div class="button">3</div>
+          <div class="button orange">+</div>
+        </div>
+        <div class="fifth-section">
+          <div class="button zero">0</div>
+          <div class="button">.</div>
+          <div class="button orange">=</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const screen = document.querySelector(".screen");
+      const buttons = document.querySelectorAll(".button");
+
+      let currentInput = "";
+      let previousInput = "";
+      let operator = "";
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const value = button.textContent;
+          if (value == "AC") {
+            currentInput = "";
+            previousInput = "";
+            operator = "";
+            screen.textContent = "";
+          }
+          if (!isNaN(value) || value === ".") {
+            currentInput += value;
+            screen.textContent = currentInput;
+          } else if (value === "+/-") {
+            if (currentInput !== "") {
+              currentInput = (parseFloat(currentInput) * -1).toString();
+              screen.textContent = currentInput;
+            }
+          } else if (
+            value === "+" ||
+            value === "-" ||
+            value === "x" ||
+            value === "/"
+          ) {
+            operator = value;
+            previousInput = currentInput;
+            currentInput = "";
+          } else if (value === "=") {
+            if (currentInput === "" || previousInput === "" || operator === "")
+              return;
+            let result;
+            const prev = parseFloat(previousInput);
+            const curr = parseFloat(currentInput);
+            switch (operator) {
+              case "+":
+                result = prev + curr;
+
+                break;
+              case "-":
+                result = prev - curr;
+                break;
+              case "x":
+                result = prev * curr;
+                break;
+              case "/":
+                result = prev / curr;
+                break;
+              case "+":
+                result = prev + curr;
+                break;
+            }
+
+            screen.textContent = result;
+            currentInput = result.toString();
+            operator = "";
+            previousInput = "";
+          } else if (value === "%") {
+            if (currentInput !== "" && previousInput !== "") {
+              currentInput = (
+                (parseFloat(previousInput) * parseFloat(currentInput)) /
+                100
+              ).toString();
+              screen.textContent = currentInput;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

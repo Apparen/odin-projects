@@ -1,0 +1,89 @@
+html,body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:Verdana, Geneva, Tahoma, sans-serif     
+      }
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgba(168, 175, 183, 0.587);
+      }
+      .container{
+        width: 400px;
+        background-color: rgba(16, 24, 40);
+        padding: 20px;
+        border-radius: 20px;
+      }
+      .screen {
+        height: 150px;
+        background-color: rgba(74, 85, 101, 0.338);
+        margin: 0;
+        padding: 0 20px;
+        border-radius: 20px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        font-size: 38px;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        overflow-x:hidden;
+        font-family: 'Orbitron', Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 700;
+      }
+      .buttons {
+        margin-top: 20px;
+        border-radius: 0 0 20px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: auto;
+        width: auto;
+        gap: 20px;
+        background-color: rgba(16, 24, 40, 0.877);
+        color: #fff;
+      }
+      .first-section,
+      .second-section,
+      .third-section,
+      .fourth-section,
+      .fifth-section {
+        display: flex;
+        justify-content: space-between;
+        /* height: 100px; */
+        /* width: 50%; */
+      }
+      .buttons div{
+        /* width: 50vh; */
+        gap: 20px;
+      }
+      .first-section div,
+      .second-section div,
+      .third-section div,
+      .fourth-section div,
+      .fifth-section div{
+        display: flex;
+        width: 20%;
+        background-color: rgba(54, 65, 83, 0.877);
+        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        gap: 20px;
+        font-size:24px;
+        font-weight: 500;
+        height: 48px;
+      }
+      .button.zero {
+        border-radius: 12px;
+        flex-grow: 1;
+        min-width: 170px;
+      }
+      .first-section div{
+        background-color: rgba(74, 85, 101);
+      }
+      .button.orange{
+        background-color: rgba(255, 105, 0, 0.877);
+      }

@@ -1,0 +1,153 @@
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      @font-face {
+        font-family: "OdinFont";
+        src: url("assets/font/Norse-Bold.otf") format("opentype");
+        font-weight: 700;
+        font-style: normal;
+      }
+      .container{
+          display: flex;
+          width: 100vw;
+          height: 100vh;
+        }
+    .image-section{
+            display: flex;
+            width: 40vw;
+            background-image: url("assets/images/leaf.jpg");
+            background-position: center;
+            background-size: cover;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+    .image-brand {
+          display: flex;
+          align-items: center;
+          margin-top: 150px;
+          background-color: rgba(0, 0, 0, 0.44);
+          width: 100%;
+          justify-content: center;
+          padding: 10px;
+        }
+        .image-brand > .brand{
+             font-family: "OdinFont", Helvetica, sans-serif;
+        }
+        .image-brand > img {
+          height: 120px;
+        }
+        .brand {
+          font-size: 5.5em;
+          color: #fff;
+        }
+        .origin{
+            color: #fff;
+        }
+        .origin > p{
+            font-size: 0.8em;
+            font-weight: 400;
+            color: #cac5c5;
+            margin-bottom: 10px;
+        }
+        .origin > p > a:link{
+            color: #dbd6d6;
+            background-color: transparent;
+        }
+        .content{
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        height: 100vh;
+        justify-content: space-evenly;
+        }
+        .message{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .content :where(.message,.forms){
+            padding: 30px;
+        }
+        .content {
+            background-color: #f9fafb;
+        }
+        .content .message p{
+            max-width: 52ch;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        .content .forms{
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.20);
+            background-color: rgba(249, 250, 251);
+        }
+        h3{
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+        form{
+            display: flex;
+            gap: 60px;
+            
+        }
+        input{
+            height: 35px;
+            border: 2px solid #E5E7EB;
+            border-radius: 5px;
+            padding-left: 10px;
+            font-size: 1em;
+        }
+        input:focus{
+            outline: none;
+            border-color: rgb(62, 106, 239);
+        }
+        input:invalid{
+            border-color: red;
+        }
+        :where(label){
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.8em;
+            margin-top: 20px;
+            color: #625f5f;
+        }
+        form > .left{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        
+        } 
+        form > .right{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        .button-section{
+            display: flex;
+            flex-direction: column;
+            margin: 0 30px;
+            gap: 20px;
+        }
+        button{
+            padding: 12px 64px;
+            background-color:#596d48;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 5px;
+            border: transparent;
+            max-width: 280px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        .button-section > p > a:link{
+            color: #596d48;
+            text-decoration: none;
+            font-weight: 500;
+        }

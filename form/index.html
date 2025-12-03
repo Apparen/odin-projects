@@ -3,7 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Page form</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="image-section">
+        <div class="image-brand">
+          <img src="assets/images/odin-lined.png" alt="" />
+          <div class="brand">ODIN</div>
+        </div>
+        <div class="origin">
+            <p>Photo by <a href="https://unsplash.com/@haliewestphoto">Halie west</a> on <a href="https://unsplash.com/photos/green-leaf-plant-in-close-up-photography-25xggax4bSA">Unsplash</a></p>
+        </div>
+      </div>
+      <div class="content">
+        <div class="message">
+          <p>
+            This is not a real online service! You know you need something like
+            this in your life to help you realize your deepest dreams. Sign up
+            <em>now</em> to get started
+          </p>
+          <p>You <em>know</em> you want to.</p>
+        </div>
+        <div class="forms">
+        <h3>Let's do this!</h3>
+        <form action="">
+            <div class="left">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" />
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" />
+                
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" />
+            </div>
+
+            <div class="right">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" />
+                <label for="phoneNumber">Phone Number</label>
+                <input type="number" name="phoneNumber" id="phoneNumber" />
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" />
+            </div>
+        </div>
+    
+        <div class="button-section">
+            <button type="submit">Create Account</button>
+            <p>Already have an account? <a href="#">Log in</a></p>
+        </div>
+    </form>
+    </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

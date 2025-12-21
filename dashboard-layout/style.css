@@ -11,15 +11,15 @@ font-family: 'Roboto mono', monospace;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 60px 90px auto;
-    height: 100vh;
+    min-height: 100vh;
     padding: 5px;
     gap: 5px;
 }
 .container > *{
-    border: 1px solid black;
+    outline: 1px solid black;
 }
 .content > *{
-    border: 1px solid black;
+    outline: 1px solid black;
 }
 ul li{
     list-style: none;
@@ -34,6 +34,11 @@ ul li{
     background-color: #1992d4;
     color: #fff;
     font-size: 1.2rem;
+}
+.sidebar{
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 svg{
     fill: white;
@@ -113,13 +118,62 @@ svg{
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 1fr;
-    padding: 5px;
-    gap: 5px;
+    padding: 40px 20px;
+    gap: 20px;
+    background-color: #f5f7fa;
 }
 .content > .article{
     background-color: lightblue;
     grid-column: 1/2;
     grid-row: 1/-1;
+}
+.article{
+    padding: 10px;
+}
+.article > .card-container{
+   display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, minmax(200px, auto));
+    gap: 40px;
+    margin-top: 20px;
+}
+.article .card {
+  padding-left: 30px;
+  background: white;
+}
+.article > .card-container> .card > .icons > svg{
+    fill: #000;
+}
+.article .card {
+  /* Card container - could use either, but flex is simpler */
+  display: flex;
+  flex-direction: column; /* Stack title, description, icons vertically */
+  padding: 20px;
+  border-left: 8px solid #f0b429; 
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 200px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.info {
+  flex: 1; /* Takes remaining vertical space */
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* If you add icons row */
+.icons {
+  display: flex;
+  justify-content: flex-end; /* Align icons to right */
+  gap: 15px;
+  margin-top: auto; /* Push to bottom */
 }
 .content > .trending{
     grid-column: 2;

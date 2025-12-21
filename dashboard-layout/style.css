@@ -10,7 +10,7 @@ font-family: 'Roboto mono', monospace;
 .container{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 80px 100px auto;
+    grid-template-rows: 60px 90px auto;
     height: 100vh;
     padding: 5px;
     gap: 5px;
@@ -80,8 +80,33 @@ svg{
 .hero{
     grid-column: 2/-1;
     grid-row: 2;
-    background-color: lightcoral;
-    padding: 10px;
+    background-color: #ffffff;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.hero-name{
+    font-size: 1rem;
+    font-weight: 700;
+}
+.hero-name > :nth-child(2){
+    font-size: 1.5rem;
+}
+.hero-button{
+    display: flex;
+    margin-left: auto;
+    gap: 20px;
+    padding-right: 40px;
+}
+.hero-button > .btn{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #1992d4;
+    color: white;
 }
 .content{
     grid-row: 3/-1;
@@ -134,8 +159,16 @@ input[type="search"]:focus {
   outline: none; /* Remove default outline */
 }
 .profile{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://randomuser.me/api/portraits/women/79.jpg') ;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+.hero-profile{
+    width: 80px;
+    height: 80px;
     background-image: url('https://randomuser.me/api/portraits/women/79.jpg') ;
     background-size: cover;
     background-position: center;

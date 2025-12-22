@@ -15,12 +15,12 @@ font-family: 'Roboto mono', monospace;
     padding: 5px;
     gap: 5px;
 }
-.container > *{
+/* .container > *{
     outline: 1px solid black;
 }
 .content > *{
     outline: 1px solid black;
-}
+} */
 ul li{
     list-style: none;
 }
@@ -120,10 +120,10 @@ svg{
     grid-template-rows: 1fr 1fr;
     padding: 40px 20px;
     gap: 20px;
-    background-color: #f5f7fa;
+    background-color: #e2e8f0;
 }
 .content > .article{
-    background-color: lightblue;
+    background-color: #e2e8f0;
     grid-column: 1/2;
     grid-row: 1/-1;
 }
@@ -134,7 +134,8 @@ svg{
    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(auto-fill, minmax(200px, auto));
-    gap: 40px;
+    column-gap: 40px;
+    row-gap: 65px;
     margin-top: 20px;
 }
 .article .card {
@@ -145,9 +146,8 @@ svg{
     fill: #000;
 }
 .article .card {
-  /* Card container - could use either, but flex is simpler */
   display: flex;
-  flex-direction: column; /* Stack title, description, icons vertically */
+  flex-direction: column;
   padding: 20px;
   border-left: 8px solid #f0b429; 
   background: white;
@@ -229,11 +229,90 @@ input[type="search"]:focus {
     border-radius: 50%;
 }
 .announcements{
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
+    background-color: #e2e8f0;
     padding: 10px;
     
 }
+
+.announcement-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #fff;
+    padding :20px;
+    border-radius: 10px;
+}
+.announcement-card{
+    background-color: white;
+    padding-bottom: 30px;
+    position: relative;
+}
+.announcement-card:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #808080b6;
+}
+.announcement-card >.bottomLine{
+    border-bottom: 1px solid #808080b6;
+    margin-top: 10px;
+    width: 100%;
+}
 .trending{
-    background-color: lightgreen;
-    padding: 10px;
+    background-color: #e2e8f0;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.trending .trending-profiles{
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    align-items: center;
+}
+.trends-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+.profileTrends1{
+    width: 80px;
+    height: 80px;
+    background-image: url('https://randomuser.me/api/portraits/men/79.jpg') ;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+.profileTrends2{
+    width: 80px;
+    height: 80px;
+    background-image: url('https://randomuser.me/api/portraits/women/79.jpg') ;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+.profileTrends3{
+    width: 80px;
+    height: 80px;
+    background-image: url('https://randomuser.me/api/portraits/women/66.jpg') ;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+.profileTrends4{
+    width: 80px;
+    height: 80px;
+    background-image: url('https://randomuser.me/api/portraits/women/34.jpg') ;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
 }
